@@ -1,10 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+
 .task-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  animation: listReveal 0.4s ease both;
 }
 
-@media (max-width: 768px) {
+@keyframes listReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.no-tasks {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.no-tasks::before {
+  content: '◻';
+  font-size: 3rem;
+  opacity: 0.2;
+}
+
+@media (max-width: 700px) {
   .task-list {
     grid-template-columns: 1fr;
   }
